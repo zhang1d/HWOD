@@ -25,17 +25,17 @@ HJ7 取近似值
 在一行上输出一个整数，代表 x 四舍五入后的结果。
 */
 #include <iostream>
-using namespace std;
+
 int main()
 {
     double x;
-    const double eps = 1e-8;
-    cin >>x;
-    int i = static_cast<int> (x);
-    if( 0.5 + i - x >eps){
-        cout << i;
-    }else{
-        cout <<i + 1;
+    std::cin >> x;
+
+    int result = static_cast<int>(x);
+    if (x - result >= 0.5) {
+        ++result;
     }
+
+    std::cout << result;
     return 0;
 }
