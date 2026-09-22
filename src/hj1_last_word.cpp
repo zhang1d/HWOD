@@ -24,16 +24,19 @@ A B C D
 */
 
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
+
 int main()
-{ 
-    std::string s;
-    std::getline(std::cin,s);
-    std::stringstream strings(s);
+{
+    std::string sentence;
+    std::getline(std::cin, sentence);
+
+    std::stringstream words(sentence);
     std::string word;
-    while(strings >> word){
+    while (words >> word) {
     }
-    std::cout <<word.size();
+
+    std::cout << word.size();
     return 0;
 }
