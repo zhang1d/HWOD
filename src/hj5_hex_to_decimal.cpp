@@ -37,7 +37,7 @@ int main()
         std::cout << "ERROR" <<'\n';
         return 0;
     }
-    if(s[0] != '0' &&(s[1] !='x' || s[1] != 'X')){
+    if(s[0] != '0' ||(s[1] !='x' && s[1] != 'X')){
         std::cout << "ERROR" <<'\n';
         return 0;
     }
