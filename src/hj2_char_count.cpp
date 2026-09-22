@@ -33,22 +33,16 @@ int main()
 {
     std::string s;
     std::getline(std::cin, s);
-
     char c;
     std::cin >> c;
-
-    int count = 0;
-    for (char current : s) {
-        if (std::isdigit(static_cast<unsigned char>(c))) {
-            if (current == c) {
-                ++count;
-            }
-        } else if (std::tolower(static_cast<unsigned char>(current)) ==
-                   std::tolower(static_cast<unsigned char>(c))) {
-            ++count;
+    c = std::tolower(c);
+    int res = 0;
+    for(char i: s){
+        i = std::tolower(i);
+        if(i == c){
+            res++;
         }
     }
-
-    std::cout << count;
+    std::cout << res;
     return 0;
 }
