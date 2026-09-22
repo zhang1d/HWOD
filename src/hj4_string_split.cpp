@@ -30,27 +30,22 @@ coder000
 输出若干行，每行输出 8 个字符，代表按题意书写的结果。
 */
 
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <cmath>
-int main (){
+
+int main()
+{
     std::string s;
     std::cin >> s;
-    int append = 0;
-    for(int i = 0; i < s.size(); i++){
-        int sycd = std::abs(s.size() - i * 8);
-        if(sycd <=8){
-            std::string fgs(s.begin()+append,s.end());
-            std::cout << fgs;
-            for(int j =0 ;j<8-sycd;j++){
-                std::cout <<0;
-            }
-            std::cout <<'\n';
-            break;
+
+    for (std::size_t start = 0; start < s.size(); start += 8) {
+        const std::size_t length = std::min<std::size_t>(8, s.size() - start);
+        std::cout << s.substr(start, length);
+        for (std::size_t i = length; i < 8; ++i) {
+            std::cout << '0';
         }
-        std::string fgs(s.begin()+append,s.begin()+append+8);
-        std::cout << fgs << '\n';
-        append += 8;
+        std::cout << '\n';
     }
 
     return 0;

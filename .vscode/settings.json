@@ -4,6 +4,7 @@
   "C_Cpp.errorSquiggles": "enabled",
   "cmake.useCMakePresets": "always",
   "cmake.configureOnOpen": true,
+  "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
   "[cpp]": {
     "editor.quickSuggestions": {
       "other": "on",
