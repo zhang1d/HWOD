@@ -1,0 +1,17 @@
+{
+  "C_Cpp.intelliSenseEngine": "default",
+  "C_Cpp.autocomplete": "default",
+  "C_Cpp.errorSquiggles": "enabled",
+  "cmake.useCMakePresets": "always",
+  "cmake.configureOnOpen": true,
+  "[cpp]": {
+    "editor.quickSuggestions": {
+      "other": "on",
+      "comments": "off",
+      "strings": "off"
+    },
+    "editor.suggestOnTriggerCharacters": true,
+    "editor.parameterHints.enabled": true,
+    "editor.wordBasedSuggestions": "off"
+  }
+}
