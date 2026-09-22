@@ -30,24 +30,33 @@ HJ6 质数因子
 样例说明：
 180 = 2 * 2 * 3 * 3 * 5。
 */
+
 #include <iostream>
 #include <vector>
-using namespace std;
+
 int main()
 {
     long long n;
-    cin >> n;
-    vector<long long> res;
-    for(long long i = 2; i < n; i++){
-        if(n % i == 0){
-            n /= i;
-            res.push_back(i);
-        }
+    std::cin >> n;
 
+    std::vector<long long> factors;
+    for (long long i = 2; i * i <= n; ++i) {
+        while (n % i == 0) {
+            factors.push_back(i);
+            n /= i;
+        }
     }
-    res.push_back(n);
-    for(auto i : res){
-        std::cout << i << ' ';
+
+    if (n > 1) {
+        factors.push_back(n);
     }
+
+    for (std::size_t i = 0; i < factors.size(); ++i) {
+        if (i > 0) {
+            std::cout << ' ';
+        }
+        std::cout << factors[i];
+    }
+
     return 0;
 }
