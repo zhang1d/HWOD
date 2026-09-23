@@ -60,41 +60,27 @@ up
 */
 #include <iostream>
 #include <string>
-#include <unordered_set>
 #include <algorithm>
-#include <sstream>
 #include <vector>
 using namespace std;
+
 int main()
 {
     int n;
-    cin >>n;
-    vector<string> s(n);
-    for (size_t i = 0; i < n; i++)
+    cin >> n;
+
+    vector<string> words(n);
+    for (string& word : words)
     {
-        cin >> s[i];
+        cin >> word;
     }
-    sort(s.begin(),s.end(),[](string a,string b){
-        auto size = a.size() < b.size() ? a.size() : b.size();
-        for(auto i = 0; i < size;i ++ ){
-            if(a[i] > b[i]){
-                return false;
-            }else if (a[i] < b[i])
-            {
-               return true;
-            }
-            
-        }
-        if (a.size() > b.size())
-        {
-            return false;
-        }
-        
-        return true;
-    });
-    
-    for(auto i : s){
-        cout << i << '\n';
+
+    sort(words.begin(), words.end());
+
+    for (const string& word : words)
+    {
+        cout << word << '\n';
     }
+
     return 0;
 }
