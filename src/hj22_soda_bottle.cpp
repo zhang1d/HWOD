@@ -39,32 +39,12 @@ HJ22 汽水瓶
 对于每组测试数据，单独一行输出一个整数，表示小张最多可以喝到的汽水数量。
 */
 #include <iostream>
-#include <string>
-#include <algorithm>
-#include <vector>
-#include <unordered_map>
 using namespace std;
 
-int qishui(int& n,int& res){
-   if(n == 0|| n==1){
-      return 0;
-   }
-   if(n== 2)
-   return res++;
-      n-=2;
-      res++;
-      return qishui(n,res) ;
-}
 int main()
 {
-   int n;int res =0;
-   while(1){
-      cin >>n;
-      if(n== 0) break;
-      
-      qishui(n,res);
-      cout <<res<<'\n';
-      res =0;
-   }
-   
+    int n;
+    while (cin >> n && n != 0) {
+        cout << n / 2 << '\n';
+    }
 }
