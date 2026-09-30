@@ -29,43 +29,28 @@ aaddd
 */
 #include <iostream>
 #include <string>
-#include <algorithm>
-#include <vector>
-#include <unordered_map>
 using namespace std;
-int main()
-{
-    string s;
-    cin >>s;
-    vector<int> res(26,0);
-    for(auto i:s){
-        for(int j = 0; j < res.size();j++){
-            if(i == 'a'+j){
-                res[j]++;
-            }
-        }
-    }
-    vector<int> mini;
-    int left = INT_MAX,right;
-    for(int i =0;i < res.size();i++){
-        if(res[i]!= 0 &&res[i] < left ){
-            mini.clear();
-            mini.push_back(i);
-            left = res[i];
-            continue;
-        }
-        if(res[i]!= 0 &&res[i] == left ){
-             mini.push_back(i);
-            left = res[i];
-        }
 
+int main() {
+    string s;
+    cin >> s;
+
+    int count[26] = {};
+    for (char c : s) {
+        count[c - 'a']++;
     }
-for (int index : mini) {
-    char c = 'a' + index;
-    s.erase(remove(s.begin(), s.end(), c), s.end());
-}
-    for(auto i :s){
-        cout <<i;
+
+    int minCount = s.size();
+    for (int n : count) {
+        if (n > 0 && n < minCount) {
+            minCount = n;
+        }
     }
-    
+
+    for (char c : s) {
+        if (count[c - 'a'] != minCount) {
+            cout << c;
+        }
+    }
+    cout << '\n';
 }
